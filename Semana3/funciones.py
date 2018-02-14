@@ -32,3 +32,22 @@ def kelvin_a_centigrados(kelvin):
     """
     return kelvin - 273
 
+def calcular_propina(cuenta, porcentaje_propina):
+    """(num,num) -> float
+
+    Calcula la propina dado una cuenta y un porcentaje de propina
+
+    Precondición: La propina es un valor entre 0 y 100
+
+    >>> calcular_propina(100,10)
+    10.0
+    >>> calcular_propina(2000,5)
+    100.0
+
+    :param cuenta: El valor consumido en el restaurante
+    :param porcentaje_propina: El porcentaje de propina (entre 0 y 100)
+    :return: El valor de la propina calculado
+    """
+    propina = cuenta * porcentaje_propina
+    propina = propina / 100
+    return propina
