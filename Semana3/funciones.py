@@ -15,3 +15,20 @@ def area_circulo(radio):
     :return: el area del circulo
     """
     return math.pi * radio *radio
+
+def kelvin_a_centigrados(kelvin):
+    """
+    (num) -> num
+
+    Convierte una cantidad en grados kelvin a grados centigrados
+
+    >>> kelvin_a_centigrados(273)
+    0
+    >>> kelvin_a_centigrados(500)
+    227
+
+    :param kelvin: la cantidad en grados kelvin
+    :return: La cantidad en grados centigrados
+    """
+    return kelvin - 273
+
