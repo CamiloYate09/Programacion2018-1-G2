@@ -1,12 +1,12 @@
-def esPar(numero):
+def es_par(numero):
     '''
     (int) -> boolean
 
     Valida si un numero es par
 
-    >>> esPar(2)
+    >>> es_par(2)
     true
-    >>> esPar(9)
+    >>> es_par(9)
     false
 
     :param numero: el numero a verificar
@@ -17,13 +17,13 @@ def esPar(numero):
 numero = int(input("Digite su numero:\n"))
 
 #if nos permite tomar una decision
-if(esPar(numero)):
+if(es_par(numero)):
     print("El número "+ str(numero) + " es par")
 #else nos permite evaluar el caso contrario
 else:
     print("El número "+ str(numero) + " no es par")
 
-def saludarHora(hora):
+def saludar_hora(hora):
     '''
     (num) -> str
 
@@ -31,13 +31,13 @@ def saludarHora(hora):
     Precondicion: hora 0 - 23
 
 
-    >>> saludarHora(10)
+    >>> saludar_hora(10)
     "Buenos días"
 
-    >>> saludarHora(16)
+    >>> saludar_hora(16)
     "Buenas tardes"
 
-    >>> saludarHora(21)
+    >>> saludar_hora(21)
     "Buenas noches"
 
     :param hora: la hora actual
@@ -50,4 +50,4 @@ def saludarHora(hora):
     else:
         return "Buenas Noches"
 
-print(saludarHora(int(input("Que hora es?\n"))))
+print(saludar_hora(int(input("Que hora es?\n"))))
