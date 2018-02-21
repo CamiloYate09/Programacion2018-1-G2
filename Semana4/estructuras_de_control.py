@@ -14,18 +14,7 @@ def esPar(numero):
     '''
     return numero%2==0
 
-def saludarHora(hora):
-    '''
-
-    :param hora:
-    :return:
-    '''
-
-
 numero = int(input("Digite su numero:\n"))
-
-print(numero)
-
 
 #if nos permite tomar una decision
 if(esPar(numero)):
@@ -34,4 +23,31 @@ if(esPar(numero)):
 else:
     print("El número "+ str(numero) + " no es par")
 
+def saludarHora(hora):
+    '''
+    (num) -> str
 
+    Saluda de acuerdo a la hora dada
+    Precondicion: hora 0 - 23
+
+
+    >>> saludarHora(10)
+    "Buenos días"
+
+    >>> saludarHora(16)
+    "Buenas tardes"
+
+    >>> saludarHora(21)
+    "Buenas noches"
+
+    :param hora: la hora actual
+    :return: un saludo
+    '''
+    if hora<13:
+        return "Buenos Días"
+    elif hora < 17:
+        return "Buenas tardes"
+    else:
+        return "Buenas Noches"
+
+print(saludarHora(int(input("Que hora es?\n"))))
