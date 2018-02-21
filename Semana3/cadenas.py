@@ -53,12 +53,24 @@ def saludar_2():
 
     :return: el nombre completo
     '''
-    nombre = input("¿Cual es su Nombre?\n")
-    apellido = input("¿Cual es su Apellido\n")
+
+    #strip() elimina los espacios al comienzo y al final de mi cadena
+    nombre = input("¿Cual es su Nombre?\n").strip().lower()
+
+    #lower() convierte la cadena en minusculas
+    apellido = input("¿Cual es su Apellido\n").strip().lower()
     return nombre + " " + apellido
 
 #probamos nuestra función saludar
-print("Hola" , saludar())
+#print("Hola" , saludar())
 
-#probamos nuestra función saludar 2
-print("Hola" , saludar_2())
+#probamos nuestra función saludar 2 y escribimos como un titulo
+#print("Hola" , saludar_2().title())
+
+#podemos convertir de numeros a cadenas
+#print("Hola " + str(2) + "da vez")
+
+print(int("234"))
+
+
+
