@@ -42,7 +42,7 @@ def turno(numero, numero_turno):
     mayor y 3 si es menor
     """
     print("Es el turno " + str(numero_turno))
-    guess = int(input("¿Que número crees que es?: "))
+    guess = int(input("¿Que número crees que es?:\n"))
     if guess == numero:
         return 1
     elif guess < numero:
