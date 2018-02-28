@@ -27,16 +27,16 @@ siguientes funciones:
     5. La aplicación deberá indicar el nombre del jugador ganador
     o empate si se obtiene la misma cantidad de puntos.
 """
+from random import randint
+
 __author__ = 'Jose Cordoba'
 
 print("--- Bienvenido a Appuestas ---")
 local = "Caracoles"
 visitante = "Plumas"
 
-
 # Imprimir encuentro deportivo
-print("El encuentro de hoy es",local,"vs",visitante)
-
+print("El encuentro de hoy es", local, "vs", visitante)
 
 # Lea los nombres de sus jugadores
 jugador_1 = input("Jugador 1 Ingrese su nombre: ")
@@ -56,28 +56,35 @@ def leer_resultado(nombre_jugador, nombre_equipo):
     :param nombre_equipo: El nombre del equipo
     :return: int el resultado esperado por el jugador para el equipo
     """
-    resultado = input(nombre_jugador + " ¿Que resultado espera para? " + nombre_equipo+": ")
-    resultado = int(resultado)
-    if resultado>=0 and resultado <=5:
-        return resultado;
+    resultado = input(nombre_jugador + " ¿Que resultado espera para? " + nombre_equipo + ": ")
+
+    try:
+        resultado = int(resultado)
+    except ValueError:
+        print("El resultado debe ser un numero entre 0 y 5")
+        resultado = leer_resultado(nombre_jugador, nombre_equipo)
+
+    if 0 <= resultado <= 5:
+        return resultado
     else:
         print("El resultado debe ser un numero entre 0 y 5")
+        return leer_resultado(nombre_jugador, nombre_equipo)
+
 
 # Lea los 4 resultados
-resultado_local_jugador_1 = leer_resultado(jugador_1,local)
-resultado_visitante_jugador_1 = leer_resultado(jugador_1,visitante)
-resultado_local_jugador_2 = leer_resultado(jugador_2,local)
-resultado_visitante_jugador_2 = leer_resultado(jugador_2,visitante)
+resultado_local_jugador_1 = leer_resultado(jugador_1, local)
+resultado_visitante_jugador_1 = leer_resultado(jugador_1, visitante)
+resultado_local_jugador_2 = leer_resultado(jugador_2, local)
+resultado_visitante_jugador_2 = leer_resultado(jugador_2, visitante)
 
 # Genere los resultados de cada equipo
-from random import randint
-resultado_local = randint(0,5)
-resultado_visitante = randint(0,5)
+resultado_local = randint(0, 5)
+resultado_visitante = randint(0, 5)
 
 
 # Complete la función puntaje_jugador
-def puntaje_jugador(resultado_local,
-                    resultado_visitante,
+def puntaje_jugador(resultado_local_real,
+                    resultado_visitante_real,
                     resultado_local_jugador,
                     resultado_visitante_jugador):
     """
@@ -96,8 +103,8 @@ def puntaje_jugador(resultado_local,
     >>> puntaje_jugador(3,2,3,4)
     2
 
-    :param resultado_local: el resultado del equipo local
-    :param resultado_visitante: el resultado del equipo visitante
+    :param resultado_local_real: el resultado del equipo local
+    :param resultado_visitante_real: el resultado del equipo visitante
     :param resultado_local_jugador: el resultado del equipo local esperado
     por el jugador
     :param resultado_visitante_jugador: el resultado del equipo visitante
@@ -107,34 +114,38 @@ def puntaje_jugador(resultado_local,
 
     puntaje = 0
 
-    if resultado_local>resultado_visitante and resultado_local_jugador>resultado_visitante_jugador:
-        puntaje +=1
-    elif resultado_local<resultado_visitante and resultado_local_jugador<resultado_visitante_jugador:
-        puntaje +=1
-    elif resultado_local==resultado_visitante and resultado_local_jugador==resultado_visitante_jugador:
-        puntaje +=1
+    atino_1 = resultado_local_real > resultado_visitante_real and resultado_local_jugador > resultado_visitante_jugador
+    atino_1 = atino_1 or (
+            resultado_local_real < resultado_visitante_real and resultado_local_jugador < resultado_visitante_jugador)
+    atino_1 = atino_1 or (
+            resultado_local_real == resultado_visitante_real and resultado_local_jugador == resultado_visitante_jugador)
 
-    if resultado_local == resultado_local_jugador:
-        puntaje +=2
+    if atino_1:
+        puntaje += 1
+    if resultado_local_real == resultado_local_jugador:
+        puntaje += 2
 
-    if resultado_visitante == resultado_visitante_jugador:
-        puntaje +=2
+    if resultado_visitante_real == resultado_visitante_jugador:
+        puntaje += 2
 
-    if resultado_local == resultado_local_jugador and resultado_visitante == resultado_visitante_jugador:
-        puntaje +=5
+    if resultado_local_real == resultado_local_jugador and resultado_visitante_real == resultado_visitante_jugador:
+        puntaje += 5
 
     return puntaje
 
+
 # Calcule el puntaje de cada jugador
-puntaje_jugador_1 = puntaje_jugador(resultado_local,resultado_visitante,resultado_local_jugador_1,resultado_visitante_jugador_1)
-puntaje_jugador_2 = puntaje_jugador(resultado_local,resultado_visitante,resultado_local_jugador_2,resultado_visitante_jugador_2)
+puntaje_jugador_1 = puntaje_jugador(resultado_local, resultado_visitante, resultado_local_jugador_1,
+                                    resultado_visitante_jugador_1)
+puntaje_jugador_2 = puntaje_jugador(resultado_local, resultado_visitante, resultado_local_jugador_2,
+                                    resultado_visitante_jugador_2)
 
 # Indique el resultado de la apuesta
-print("El partido finalizó con un marcador de",str(resultado_local),"para",local,
-      "y",str(resultado_visitante),"para",visitante)
-if puntaje_jugador_1>puntaje_jugador_2:
-    print("El ganador es",jugador_1,"con",str(puntaje_jugador_1),"puntos\n")
-elif puntaje_jugador_1<puntaje_jugador_2:
-    print("El ganador es",jugador_2,"con",str(puntaje_jugador_2),"puntos\n")
+print("El partido finalizó con un marcador de", str(resultado_local), "para", local,
+      "y", str(resultado_visitante), "para", visitante)
+if puntaje_jugador_1 > puntaje_jugador_2:
+    print("El ganador es", jugador_1, "con", str(puntaje_jugador_1), "puntos\n")
+elif puntaje_jugador_1 < puntaje_jugador_2:
+    print("El ganador es", jugador_2, "con", str(puntaje_jugador_2), "puntos\n")
 else:
-    print("Es un empate entre",jugador_1,"y",jugador_2,"\n")
+    print("Es un empate entre", jugador_1, "y", jugador_2, "\n")
