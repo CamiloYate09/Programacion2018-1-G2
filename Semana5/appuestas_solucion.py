@@ -128,8 +128,8 @@ def puntaje_jugador(resultado_local_real,
     if resultado_visitante_real == resultado_visitante_jugador:
         puntaje += 2
 
-    if resultado_local_real == resultado_local_jugador and resultado_visitante_real == resultado_visitante_jugador:
-        puntaje += 5
+    if puntaje == 5:
+        puntaje *= 2
 
     return puntaje
 
@@ -148,4 +148,6 @@ if puntaje_jugador_1 > puntaje_jugador_2:
 elif puntaje_jugador_1 < puntaje_jugador_2:
     print("El ganador es", jugador_2, "con", str(puntaje_jugador_2), "puntos\n")
 else:
-    print("Es un empate entre", jugador_1, "y", jugador_2, "\n")
+    print("Es un empate entre"
+          "", jugador_1, "y", jugador_2,
+          "\nDe", puntaje_jugador_1, "puntos\n")
