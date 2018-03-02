@@ -102,6 +102,8 @@ def puntaje_jugador(resultado_local_real,
     3
     >>> puntaje_jugador(3,2,3,4)
     2
+    >>> puntaje_jugador(3,0,3,1)
+    3
 
     :param resultado_local_real: el resultado del equipo local
     :param resultado_visitante_real: el resultado del equipo visitante
