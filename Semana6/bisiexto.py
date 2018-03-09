@@ -22,7 +22,7 @@ def es_bisiexto(ano):
 
 ano_usuario = int(input("Ingrese su año\n"))
 
-if es_bisiexto(ano_usuario):
+if 0:
     print("Su año es bisiexto\n")
 else:
     print("Su año no es bisiexto\n")
