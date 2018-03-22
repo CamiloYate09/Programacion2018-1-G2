@@ -55,3 +55,31 @@ def suma_vectores(v_1, v_2):
         return vector_resultante
     else:
         raise ValueError("Los vectores tienen diferente dimension")
+
+
+def producto_punto(v_1, v_2):
+    """
+    (list of num, list_num) -> num
+
+    Calcula el producto punto de dos vectores
+
+    >>> producto_punto([1,3,5],[1,1,1])
+    9
+
+    >>> producto_punto([1,1,1],[1,1,1])
+    3
+
+    >>> producto_punto([1,1,1],[1,2,3])
+    6
+
+    :param v_1: El primer vector
+    :param v_2: El segundo vector
+    :return: num el escalar resultante
+    """
+    if (len(v_2) == len(v_1)):
+        escalar_reultante = 0
+        for i in range(0, len(v_1)):
+            escalar_reultante += v_1[i] * v_2[i]
+        return escalar_reultante
+    else:
+        raise ValueError("Los vectores tienen diferente dimension")
