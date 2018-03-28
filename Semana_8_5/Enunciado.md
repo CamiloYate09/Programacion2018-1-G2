@@ -10,7 +10,7 @@ respuesta correcta y de esa forma aprender a solucionar
 futuras inquietudes. Su programa debe continuar chateando
 con el usuario hasta que este decida despedirse.
 
-![Robot](robot.png)
+![Robot](robot.jpg)
 
 * Utilice funciones para reutilizar su código y priorice la
 legibilidad del mismo usando nombres de variables que tengan
