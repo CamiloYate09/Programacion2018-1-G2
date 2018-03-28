@@ -12,18 +12,20 @@ con el usuario hasta que este decida despedirse.
 
 ![Robot](robot.png)
 
-Utilice funciones para reutilizar su código y priorice la
+* Utilice funciones para reutilizar su código y priorice la
 legibilidad del mismo usando nombres de variables que tengan
 sentido.
+* Cargue una serie de respuestas por defecto para que su
+robot funcione en el escenario inicial
 
 Recuerde que se evaluará:
-1. Estructuras de control (if, try, for, while)
-2. Listas
-3. Funciones
-4. Documentacion
-5. Tipos de datos
-6. Patrón contador
-7. Patrón Acumulador
+1. Estructuras de control (if, try, for, while).
+2. Listas.
+3. Funciones.
+4. Documentacion.
+5. Tipos de datos.
+6. Patrón contador.
+7. Patrón Acumulador.
 
 **Sugerencia 1**
 Ulitice diccionarios para apoyarse en la solución de su
@@ -65,3 +67,7 @@ print(len(dias_en_ingles))
 
 Muchos exitos y en caso de dudas no olvide consultar tanto con
 el docente del curso como con el monitor asignado
+
+**Pasos a futuro** Extienda su proyecto a futuro agregando
+soporte a archivos para conservar el estado de aprendizaje de
+su robot.
