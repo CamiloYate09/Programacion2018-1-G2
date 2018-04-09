@@ -20,23 +20,16 @@ letras_disponibles = 'qwertyuiopasdfghjklzxcvbnm'
 # Generamos las letras adivinadas
 letras_adivinadas = ''
 
-# Todo Hacer una función para validar la entrada de una letra
 def solicitar_letra():
     """
     (none)->str
     :return: la letra ingresada por el usuario
     """
     letra = input('Ingrese su letra\n').lower()
-    if len(letra) != 1:
-        print('Ingrese una sola letra')
-        letra = solicitar_letra()
-    elif not (letra in 'qwertyuiopasdfghjklzxcvbnm'):
-        print('Ingrese una letra del alfabeto')
-        letra = solicitar_letra()
+    while len(letra) != 1 or not (letra in 'qwertyuiopasdfghjklzxcvbnm'):
+        letra = input('Error.\ Ingrese su letra\n').lower()
     return letra
 
-
-# Todo Hacer una función para crear la cadena de letras adivinadas
 def generar_estado_palabra(palabra, letras_adivinadas):
     """
     (str, str) -> str
@@ -54,9 +47,8 @@ def generar_estado_palabra(palabra, letras_adivinadas):
     return resultado
 
 
-
 print('Bienvenido a ahorcado')
-# Todo Recorrer por los turnos
+# Recorremos los turnos
 while intentos_restantes > 0:
     print('Le quedan',intentos_restantes,'intentos')
     letra = solicitar_letra()
@@ -69,11 +61,10 @@ while intentos_restantes > 0:
     letras_disponibles = letras_disponibles.replace(letra,"")
     estado_actual = generar_estado_palabra(palabra_secreta,letras_adivinadas)
     print(estado_actual)
-    print('las letras disponibles son',letras_disponibles)
     if estado_actual == palabra_secreta:
-        print('Ganaste')
+        print('Ganaste, la palabra era', palabra_secreta)
         break
-
+    print('las letras disponibles son', letras_disponibles)
 if intentos_restantes == 0:
     print('la palabra era',palabra_secreta, 'lo siento')
 
