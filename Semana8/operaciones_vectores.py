@@ -59,7 +59,7 @@ def suma_vectores(v_1, v_2):
 
 def producto_punto(v_1, v_2):
     """
-    (list of num, list_num) -> num
+    (list of num, list of num) -> num
 
     Calcula el producto punto de dos vectores
 
