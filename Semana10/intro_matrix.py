@@ -30,6 +30,9 @@ def vector_columna(matriz, indice):
     >>> vector_columna([[1,2,3], [4,5,6], [7,8,9]], 2)
     [3, 6, 9]
 
+    >>> vector_columna([[1,2,3], [4,5,6], [7,8,9]], 2)
+    [3, 6, 9]
+
     :param matriz: la matriz para extraer
     :param indice: el indice del vector columna
     :return: el vector generado
@@ -58,7 +61,7 @@ def producto_matrices(matriz_a, matriz_b):
     for i in range(0, len(matriz_a)):
         # Este for recorre las columnas de B
         vector_fila = []
-        for j in range(0, len(matriz_b[0])):
+        for j in range(0, len(matriz_a)):
             print('Fila de a', matriz_a[i])
             print('Columna de b', vector_columna(matriz_b, j))
             vector_fila.append(pp(matriz_a[i], vector_columna(matriz_b, j)))
