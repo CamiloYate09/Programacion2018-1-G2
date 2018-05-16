@@ -1,0 +1,3 @@
+hilton,5,piscina,bar,jacuzzi,conductor,restaurante
+marriott,4,piscina,bar,conductor
+amarte,1,piscina,bar,jacuzzi,conductor,restaurante,arroz pollo
